@@ -1,0 +1,76 @@
+body {
+    background-color: #111;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding-top: 50px;
+}
+
+.genre-section { margin-bottom: 50px; }
+
+.section-title {
+    margin-left: 5%;
+    font-size: 1.4rem;
+    color: #e50914;
+    letter-spacing: 1px;
+}
+
+/* Le Slider */
+.cinema-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 10px 5%;
+    scrollbar-width: none;
+}
+
+.cinema-slider::-webkit-scrollbar { display: none; }
+
+.slide {
+    flex: 0 0 45%; 
+    scroll-snap-align: start;
+}
+
+@media (min-width: 800px) {
+    .slide { flex: 0 0 18%; } /* 5 films visibles + un bout du 6ème */
+}
+
+/* Le conteneur de l'image (pour bloquer le zoom) */
+.card-inner {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden; /* Important : garde les coins arrondis lors du zoom */
+    cursor: pointer;
+    background-color: #222;
+}
+
+.card-inner img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* L'onglet noir d'info */
+.info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85); /* Fond noir transparent */
+    color: white;
+    padding: 10px;
+    font-size: 0.85rem;
+    transform: translateY(100%); /* Caché en bas par défaut */
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+/* Effets au survol */
+.card-inner:hover img {
+    transform: scale(1.1); /* Zoom interne de l'image */
+}
+
+.card-inner:hover .info {
+    transform: translateY(0); /* L'onglet remonte */
+}
