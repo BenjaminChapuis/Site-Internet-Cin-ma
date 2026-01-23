@@ -1,0 +1,58 @@
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Flexbox */
+    display: flex;
+}
+
+/* Espacement entre les éléments */
+.menu li {
+    margin-right: 20px;
+}
+
+/* Style des liens */
+.menu a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.menu img {
+    height: 60px;        /* ajuste la valeur */
+    width: auto;         /* garde les proportions */
+}
+
+nav {
+    background-color: #ce4646;
+    padding: 10px 20px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu a {
+    font-size: 200%; /* ajuste la taille ici */
+}
+
+.menu li a {
+    display: block;          /* rend le lien en bloc */
+    padding: 10px 20px;      /* ajoute de l’espace autour du texte */
+    text-decoration: none;   /* enlève le soulignement */
+    color: white;            /* couleur du texte */
+    background-color: #ce4646;  /* couleur de la case */
+    border-radius: 5px;      /* coins arrondis facultatifs */
+
+}
+.menu li a:hover {
+    background-color: #6d6d6d;
+}
+
+
+
