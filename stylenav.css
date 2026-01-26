@@ -67,3 +67,31 @@ body{
   padding-top: 180px;
 }
 
+.nav-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espace entre le mot PANIER et le badge */
+}
+
+.cart-badge {
+    background-color: #ffffff;
+    color: rgb(219, 25, 25);
+    font-size: 0.75rem; /* Un peu plus petit pour rester élégant */
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* Aligne verticalement le badge sur le texte */
+    transform: translateY(1px); 
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.4);
+}
+
+/* Animation sympa quand on ajoute une place */
+@keyframes popIn {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
