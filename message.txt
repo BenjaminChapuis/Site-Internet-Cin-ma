@@ -1,0 +1,16 @@
+<?php
+$idFilm = $_GET['id'] ?? null;
+$filmTrouve = null;
+
+if (($fichier = fopen("films.csv", "r")) !== false) {
+    fgetcsv($fichier, 0, ";"); // sauter l'en-tête
+
+    while (($ligne = fgetcsv($fichier, 0, ";")) !== false) {
+        if ($ligne[0] == $idFilm) {
+            $filmTrouve = $ligne;
+            break;
+        }
+    }
+    fclose($fichier);
+}
+?>
