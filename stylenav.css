@@ -10,7 +10,7 @@ body {
 }
 
 nav {
-    background-color: #ce4646;
+    background-color: #e50914;
     height: 150px;
 }
 
@@ -43,7 +43,7 @@ nav {
     color: white;
     font-weight: bold;
     font-size: 200%;
-    background-color: #ce4646;
+    background-color: #e50914;
 }
 
 /* hover uniquement pour les rubriques */

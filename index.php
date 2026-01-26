@@ -1,5 +1,4 @@
 <?php include 'nav.php'; ?> 
-<html>
 <link rel="stylesheet" href="styleindex.css">   
 <div class="cinema-container">
 
