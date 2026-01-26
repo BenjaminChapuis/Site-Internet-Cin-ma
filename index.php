@@ -22,12 +22,12 @@
                     <div class="info">Drame | 2h30<br>Rêvez grand.</div>
                 </div>
             </div>
-            <div class="slide"><div class="card-inner"><img src="film1.jpg" alt="Film"><div class="info">Aventure Sci-Fi | 3h18<br>Le monde de Pandora changera à jamais.</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="film2.jpg" alt="Film"><div class="info">Comédie | 1h30<br>Rires garantis !</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="film3.jpg" alt="Film"><div class="info">Horreur | 2h00<br>Frissons assurés.</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="film4.jpg" alt="Film"><div class="info">Sci-Fi | 2h30<br>Le futur est ici.</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="film5.jpg" alt="Film"><div class="info">Animation | 1h20<br>Pour toute la famille.</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="film6.jpg" alt="Film"><div class="info">Animation | 1h20<br>Pour toute la famille.</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=2"><img src="film1.jpg" alt="Film"></a><div class="info">Aventure Sci-Fi | 3h18<br>Le monde de Pandora changera à jamais.</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=3"><img src="film2.jpg" alt="Film"></a><div class="info">Comédie | 1h30<br>Rires garantis !</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=4"><img src="film3.jpg" alt="Film"></a><div class="info">Horreur | 2h00<br>Frissons assurés.</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=5"><img src="film4.jpg" alt="Film"></a><div class="info">Sci-Fi | 2h30<br>Le futur est ici.</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=6"><img src="film5.jpg" alt="Film"></a><div class="info">Animation | 1h20<br>Pour toute la famille.</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=7"><img src="film6.jpg" alt="Film"></a><div class="info">Animation | 1h20<br>Pour toute la famille.</div></div></div>
         </div>
     </section>
     <section class="genre-section">
