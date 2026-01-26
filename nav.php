@@ -26,7 +26,7 @@ if (isset($_SESSION['panier'])) {
         <li><img src="logo.png"></li>
         <li><a href="index.php">Films</a></li>
         <li><a href="cinema.php">Cinéma</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.php">Contact</a></li>
         <li><a class="nav-link nav-cart" href="panier.php">Panier <?php if ($countPanier > 0): ?><span class="cart-badge"><?php echo $countPanier; ?></span><?php endif; ?></a></li>
         <li><a href="contact.html">Recherche</a></li>
         <li><a href="contact.html">Compte</a></li>
