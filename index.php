@@ -13,7 +13,7 @@
 <body><?php include 'nav.php'; ?>
 <div class="cinema-container">
     <section class="genre-section">
-        <h2 class="section-title">Films actuels</h2>
+        <h2 class="section-title">À l'affiche</h2>
         <div class="cinema-slider">
             <div class="slide">
                 <div class="card-inner">
@@ -30,7 +30,7 @@
         </div>
     </section>
     <section class="genre-section">
-        <h2 class="section-title">Prochaines sorties</h2>
+        <h2 class="section-title">Bientôt disponible</h2>
         <div class="cinema-slider">
             <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 15 Mars</div></div></div>
             <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 22 Mars</div></div></div>
@@ -41,7 +41,7 @@
         </div>
     </section>
     <section class="genre-section">
-        <h2 class="section-title">Avant-premières</h2>
+        <h2 class="section-title">Classiques à revoir</h2>
         <div class="cinema-slider">
             <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Lundi 20h00</div></div></div>
             <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Mardi 19h30</div></div></div>
