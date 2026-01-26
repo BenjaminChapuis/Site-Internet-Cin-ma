@@ -6,11 +6,12 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color:#111;
 }
 
 nav {
     background-color: #ce4646;
-    height: 80px;
+    height: 150px;
 }
 
 .menu {
@@ -52,6 +53,6 @@ nav {
 
 /* logo */
 .menu img {
-    height: 150%;
+    height: 40%;
     width: auto;
 }
