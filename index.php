@@ -8,7 +8,7 @@
         <div class="cinema-slider">
             <div class="slide">
                 <div class="card-inner">
-                    <img src="film.jpg" alt="Film">
+                    <a href="info.php?id=1"><img src="film.jpg" alt="Film"></a>
                     <div class="info">Drame | 2h30<br>Rêvez grand.</div>
                 </div>
             </div>
