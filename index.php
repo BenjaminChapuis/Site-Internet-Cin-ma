@@ -18,15 +18,15 @@
             <div class="slide">
                 <div class="card-inner">
                     <a href="info.php?id=1"><img src="images/film.jpg" alt="Film"></a>
-                    <div class="info">Drame | 2h30<br>Rêvez grand.</div>
+                    <div class="info">Drame | 2h30<br>Marty Supreme</div>
                 </div>
             </div>
-            <div class="slide"><div class="card-inner"><a href="info.php?id=2"><img src="images/film1.jpg" alt="Film"></a><div class="info">Aventure Sci-Fi | 3h18<br>Le monde de Pandora changera à jamais.</div></div></div>
-            <div class="slide"><div class="card-inner"><a href="info.php?id=3"><img src="images/film2.jpg" alt="Film"></a><div class="info">Comédie | 1h30<br>Rires garantis !</div></div></div>
-            <div class="slide"><div class="card-inner"><a href="info.php?id=4"><img src="images/film3.jpg" alt="Film"></a><div class="info">Horreur | 2h00<br>Frissons assurés.</div></div></div>
-            <div class="slide"><div class="card-inner"><a href="info.php?id=5"><img src="images/film4.jpg" alt="Film"></a><div class="info">Sci-Fi | 2h30<br>Le futur est ici.</div></div></div>
-            <div class="slide"><div class="card-inner"><a href="info.php?id=6"><img src="images/film5.jpg" alt="Film"></a><div class="info">Animation | 1h20<br>Pour toute la famille.</div></div></div>
-            <div class="slide"><div class="card-inner"><a href="info.php?id=7"><img src="images/film6.jpg" alt="Film"></a><div class="info">Animation | 1h20<br>Pour toute la famille.</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=2"><img src="images/film1.jpg" alt="Film"></a><div class="info">Aventure SF | 3h18<br>Avatar : De feu et de cendres</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=3"><img src="images/film2.jpg" alt="Film"></a><div class="info">Comédie | 1h30<br>Zootopie</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=4"><img src="images/film3.jpg" alt="Film"></a><div class="info">thriller | 2h10<br>La femme de ménage</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=5"><img src="images/film4.jpg" alt="Film"></a><div class="info">Horreur Thriller | 1h30<br>Primate</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=6"><img src="images/film5.jpg" alt="Film"></a><div class="info">Comedie | 1h40<br>Marsupilami</div></div></div>
+            <div class="slide"><div class="card-inner"><a href="info.php?id=7"><img src="images/film6.jpg" alt="Film"></a><div class="info">Crime Thriller Drame | 2h20<br>Aucun autre choix</div></div></div>
         </div>
     </section>
     <section class="genre-section">
