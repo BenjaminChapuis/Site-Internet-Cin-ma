@@ -107,7 +107,7 @@ $dureeInt = (int)$dureeMin;
                 <?php endif; ?>
 
                 <?php if ($ageMin !== '') : ?>
-                    • -<?php echo htmlspecialchars($ageMin); ?>
+                    • <?php echo htmlspecialchars($ageMin); ?>
                 <?php endif; ?>
             </p>
 
