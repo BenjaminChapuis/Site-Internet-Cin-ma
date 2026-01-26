@@ -32,12 +32,18 @@
     <section class="genre-section">
         <h2 class="section-title">Bientôt disponible</h2>
         <div class="cinema-slider">
-            <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 15 Mars</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 22 Mars</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 02 Avril</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 10 Avril</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 15 Avril</div></div></div>
-            <div class="slide"><div class="card-inner"><img src="images/film.jpg" alt="Film"><div class="info">Sortie : 30 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Ody.jpg" alt="Film"><div class="info">Sortie : 15 Mars</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Ave.jpg" alt="Film"><div class="info">Sortie : 22 Mars</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Dun.jpg" alt="Film"><div class="info">Sortie : 02 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Dig.jpg" alt="Film"><div class="info">Sortie : 10 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/The.jpg" alt="Film"><div class="info">Sortie : 15 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Pro.jpg" alt="Film"><div class="info">Sortie : 30 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Dis.jpg" alt="Film"><div class="info">Sortie : 15 Mars</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Spi.jpg" alt="Film"><div class="info">Sortie : 22 Mars</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Sup.jpg" alt="Film"><div class="info">Sortie : 02 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Sta.jpg" alt="Film"><div class="info">Sortie : 10 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Mic.jpg" alt="Film"><div class="info">Sortie : 15 Avril</div></div></div>
+            <div class="slide"><div class="card-inner"><img src="images/Pro.jpg" alt="Film"><div class="info">Sortie : 30 Avril</div></div></div>
         </div>
     </section>
     <section class="genre-section">
