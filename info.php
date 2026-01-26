@@ -1,6 +1,4 @@
-
 <?php include 'nav.php'; ?>
-
 <?php
 $idFilm = $_GET['id'] ?? null;
 $filmTrouve = null;
@@ -81,6 +79,13 @@ $dureeInt = (int)$dureeMin;
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($titre); ?> - Mon Cinéma</title>
     <link rel="stylesheet" href="info.css">
+    <link rel="stylesheet" href="stylenav.css">
+    <meta charset="UTF-8">
+    <title>Lumen Cinéma</title>
+    <meta name="Benjamin Chapuis et Romain Colin" content="Lumen Cinéma">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>

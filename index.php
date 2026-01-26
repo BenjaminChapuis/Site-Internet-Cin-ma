@@ -1,7 +1,18 @@
-<?php include 'nav.php'; ?> 
-<link rel="stylesheet" href="styleindex.css">   
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lumen Cinéma</title>
+        <meta name="Benjamin Chapuis et Romain Colin" content="Lumen Cinéma">
+        <link rel="stylesheet" href="stylenav.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styleindex.css">
+    </head>
+    <body>
+<?php include 'nav.php'; ?>
 <div class="cinema-container">
-
     <section class="genre-section">
         <h2 class="section-title">Films actuels</h2>
         <div class="cinema-slider">
@@ -19,7 +30,6 @@
             <div class="slide"><div class="card-inner"><img src="film6.jpg" alt="Film"><div class="info">Animation | 1h20<br>Pour toute la famille.</div></div></div>
         </div>
     </section>
-
     <section class="genre-section">
         <h2 class="section-title">Prochaines sorties</h2>
         <div class="cinema-slider">
@@ -31,7 +41,6 @@
             <div class="slide"><div class="card-inner"><img src="film.jpg" alt="Film"><div class="info">Sortie : 30 Avril</div></div></div>
         </div>
     </section>
-
     <section class="genre-section">
         <h2 class="section-title">Avant-premières</h2>
         <div class="cinema-slider">
@@ -43,8 +52,6 @@
             <div class="slide"><div class="card-inner"><img src="film.jpg" alt="Film"><div class="info">Samedi 14h00</div></div></div>
         </div>
     </section>
-
-</div>
-   
+</div> 
 </body>
 </html>
