@@ -56,4 +56,14 @@ nav {
     height: 40%;
     width: auto;
 }
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+body{
+  padding-top: 180px;
+}
 
