@@ -1,79 +1,85 @@
-body {
-    background-color: #111;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding-top: 0px;
+/* ===== INDEX ONLY ===== */
+.cinema-container {
+  padding: 10px 0 40px;
 }
 
-.genre-section { margin-bottom: 50px; }
+.genre-section {
+  margin-bottom: 50px;
+}
 
 .section-title {
-    margin-left: 5%;
-    font-size: 1.4rem;
-    color: #e50914;
-    letter-spacing: 1px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+
+  font-size: 1.4rem;
+  color: #e50914;
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
-/* Le Slider */
+/* ===== Slider ===== */
 .cinema-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding: 10px 5%;
-    scrollbar-width: none;
+  display: flex;
+  gap: 20px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  padding: 10px 5%;
+  scrollbar-width: none;
 }
 
 .cinema-slider::-webkit-scrollbar { display: none; }
 
 .slide {
-    flex: 0 0 45%; 
-    scroll-snap-align: start;
+  flex: 0 0 45%;
+  scroll-snap-align: start;
 }
 
 @media (min-width: 800px) {
-    .slide { flex: 0 0 18%; } /* 5 films visibles + un bout du 6ème */
+  .slide { flex: 0 0 18%; }
 }
 
-/* Le conteneur de l'image (pour bloquer le zoom) */
+/* ===== Carte ===== */
 .card-inner {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden; /* Important : garde les coins arrondis lors du zoom */
-    cursor: pointer;
-    background-color: #222;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #222;
+  cursor: pointer;
 }
 
 .card-inner img {
-    width: 100%;
-    display: block;
-    transition: transform 0.4s ease;
+  width: 100%;
+  display: block;
+  transition: transform 0.35s ease;
 }
 
-/* L'onglet noir d'info */
+/* Bande info */
 .info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.85); /* Fond noir transparent */
-    color: white;
-    padding: 10px;
-    font-size: 0.85rem;
-    transform: translateY(100%); /* Caché en bas par défaut */
-    transition: transform 0.3s ease;
-    text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+
+  padding: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
 }
 
-/* Effets au survol */
+/* Hover */
 .card-inner:hover img {
-    transform: scale(1.1); /* Zoom interne de l'image */
+  transform: scale(1.08);
 }
 
 .card-inner:hover .info {
-    transform: translateY(0); /* L'onglet remonte */
+  transform: translateY(0);
 }
-
 
 
