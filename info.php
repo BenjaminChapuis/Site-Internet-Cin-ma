@@ -113,31 +113,31 @@ $dureeInt = (int)$dureeMin;
 
             <?php if ($note) : ?>
                 <p style="color:white; opacity:0.9; margin: 0 0 10px 0;">
-                    ⭐ Note : <?php echo htmlspecialchars($note); ?>
+                     Note : <?php echo htmlspecialchars($note); ?>
                 </p>
             <?php endif; ?>
 
             <?php if ($realisateur) : ?>
                 <p style="color:white; opacity:0.9; margin: 0 0 10px 0;">
-                    🎬 Réalisateur : <?php echo htmlspecialchars($realisateur); ?>
+                     Réalisateur : <?php echo htmlspecialchars($realisateur); ?>
                 </p>
             <?php endif; ?>
 
             <?php if (!empty($castList)) : ?>
                 <p style="color:white; opacity:0.9; margin: 0 0 10px 0;">
-                    👥 Casting : <?php echo htmlspecialchars(implode(', ', $castList)); ?>
+                     Casting : <?php echo htmlspecialchars(implode(', ', $castList)); ?>
                 </p>
             <?php endif; ?>
 
             <?php if ($languesDispo) : ?>
                 <p style="color:white; opacity:0.9; margin: 0 0 10px 0;">
-                    🌍 Langues : <?php echo htmlspecialchars($languesDispo); ?>
+                     Langues : <?php echo htmlspecialchars($languesDispo); ?>
                 </p>
             <?php endif; ?>
 
             <?php if ($formatsDispo) : ?>
                 <p style="color:white; opacity:0.9; margin: 0 0 10px 0;">
-                    🖥️ Formats : <?php echo htmlspecialchars($formatsDispo); ?>
+                     Formats : <?php echo htmlspecialchars($formatsDispo); ?>
                 </p>
             <?php endif; ?>
 
