@@ -29,6 +29,14 @@ if (isset($_SESSION['panier'])) {
         <li><a href="contact.php">Contact</a></li>
         <li><a class="nav-link nav-cart" href="panier.php">Panier <?php if ($countPanier > 0): ?><span class="cart-badge"><?php echo $countPanier; ?></span><?php endif; ?></a></li>
         <li><a href="recherche.php">Recherche</a></li>
-        <li><a href="contact.html">Compte</a></li>
+       <li> <a href="compte.php" class="nav-user">
+            <?php if (isset($_SESSION['user'])): ?>
+                👤 <?php echo strtoupper(htmlspecialchars($_SESSION['user'])); ?>
+            <?php else: ?>
+                MON COMPTE
+            <?php endif; ?>
+        </a></li>
     </ul>
 </nav>
+
+
