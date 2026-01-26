@@ -1,3 +1,27 @@
+.movie-header {
+    display: flex;
+    align-items: flex-start; /* Aligne le haut du texte avec le haut de l'image */
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap; /* Permet de passer l'un sous l'autre sur petit écran */
+}
+
+.movie-text {
+    flex: 1; /* Prend l'espace disponible à gauche */
+    min-width: 300px;
+}
+
+.movie-poster {
+    flex: 0 0 400px; /* Largeur fixe pour l'affiche à droite */
+}
+
+.movie-poster img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(229, 9, 20, 0.3);
+}
+
+/* --- Mise en page Detail --- */
 .movie-detail-container {
     max-width: 1200px;
     margin: auto;
@@ -5,28 +29,19 @@
     color: white;
 }
 
-/* Header : Titre à gauche, Image à droite */
 .movie-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 50px;
-    flex-wrap: wrap; /* Pour mobile */
+    flex-wrap: wrap;
 }
 
-.movie-text { flex: 1; min-width: 300px; }
 .movie-title { font-size: 4rem; color: #e50914; margin-bottom: 20px; }
 .movie-description { font-size: 1.2rem; line-height: 1.6; color: #ccc; }
+.movie-poster img { width: 400px; border-radius: 20px; box-shadow: 0 0 30px rgba(229, 9, 20, 0.3); }
 
-.movie-poster { flex: 0 0 400px; }
-.movie-poster img { 
-    width: 100%; 
-    border-radius: 20px; 
-    box-shadow: 0 0 30px rgba(229, 9, 20, 0.3);
-}
-
-/* Séances horizontal défilant */
-.showtimes-section { margin-top: 60px; }
+/* --- Séances Slider --- */
 .showtimes-slider {
     display: flex;
     overflow-x: auto;
@@ -34,6 +49,8 @@
     padding-bottom: 20px;
     scrollbar-width: none;
 }
+
+.showtime-link { text-decoration: none; color: inherit; }
 
 .showtime-card {
     flex: 0 0 200px;
@@ -43,26 +60,134 @@
     display: flex;
     padding: 15px;
     transition: 0.3s;
-    cursor: pointer;
 }
 
 .showtime-card:hover { border-color: #e50914; background: #333; }
 
+/* Force les chiffres des séances en blanc */
 .st-left {
     font-size: 2rem;
     font-weight: bold;
-    display: flex;
-    align-items: center;
+    color: #ffffff !important;
     border-right: 1px solid #444;
     padding-right: 15px;
     margin-right: 15px;
-}
-
-.st-right {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
-.st-lang { color: #e50914; font-weight: bold; font-size: 0.9rem; }
-.st-end { font-size: 0.8rem; color: #888; margin-top: 5px; }
+.st-lang { color: #e50914; font-weight: bold; }
+.st-end { color: #888; font-size: 0.8rem; }
+
+/* --- POP-UP MODALE --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal:target { display: flex; }
+
+.modal-content {
+    background: #2c2c2c; /* Gris foncé demandé */
+    color: #ffffff;      /* Texte blanc */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.modal-content h2 { color: #e50914; margin-bottom: 15px; }
+.close-btn { position: absolute; top: 15px; right: 20px; color: #888; font-size: 2rem; text-decoration: none; }
+.highlight-red { color: #e50914; font-weight: bold; }
+
+/* Lignes de tarifs */
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #444;
+}
+
+.price-action {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre prix et input */
+}
+
+.inline-price { font-weight: bold; color: #aaa; font-size: 1.1rem; }
+
+/* Input de sélection (chiffres blancs) */
+.qty-input {
+    width: 65px;
+    background: #444;
+    border: 1px solid #666;
+    color: #ffffff; /* Chiffre blanc */
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.btn-panier {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 1.1rem;
+    transition: 0.2s;
+}
+
+.btn-panier:hover { background: #b20710; }
+
+
+/* Force les chiffres des séances en blanc */
+.st-left {
+    color: #ffffff !important;
+}
+
+/* Style de la Pop-up */
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #444;
+}
+
+.price-action {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre le prix et l'input */
+}
+
+.inline-price {
+    color: #aaa;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.qty-input {
+    width: 60px;
+    background: #444;
+    border: 1px solid #666;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
