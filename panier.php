@@ -94,7 +94,7 @@ $totalGeneral = 0;
                 <span>TOTAL À PAYER :</span>
                 <span class="total-amount"><?php echo $totalGeneral; ?>€</span>
             </div>
-            <button class="btn-checkout">PROCÉDER AU PAIEMENT</button>
+            <a href="paiement.php" class="btn-checkout">PROCÉDER AU PAIEMENT</a>
         </div>
     <?php endif; ?>
 </div>
