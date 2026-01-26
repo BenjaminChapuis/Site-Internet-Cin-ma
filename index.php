@@ -1,5 +1,6 @@
-<?php include 'header.php'; ?> 
-rel="stylesheet" href="styleindex.css">   
+<?php include 'nav.php'; ?> 
+<html>
+<link rel="stylesheet" href="styleindex.css">   
 <div class="cinema-container">
 
     <section class="genre-section">
@@ -47,3 +48,4 @@ rel="stylesheet" href="styleindex.css">
 </div>
    
 </body>
+</html>
