@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="styleindex.css">   
+<?php include 'header.php'; ?> 
+rel="stylesheet" href="styleindex.css">   
 <div class="cinema-container">
 
     <section class="genre-section">
