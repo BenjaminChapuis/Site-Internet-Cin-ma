@@ -61,7 +61,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=11">
+    <a href="info.php?id=12">
       <img src="images/Dig.jpg" alt="Film">
     </a>
     <div class="info">Sortie : 2026</div>
@@ -70,7 +70,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=12">
+    <a href="info.php?id=13">
       <img src="images/The.jpg" alt="Film">
     </a>
     <div class="info">Sortie : 2025</div>
@@ -79,7 +79,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=13">
+    <a href="info.php?id=14">
       <img src="images/Pro.jpg" alt="Film">
     </a>
     <div class="info">Sortie : Mars 2026</div>
@@ -88,7 +88,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=14">
+    <a href="info.php?id=15">
       <img src="images/Dis.jpg" alt="Film">
     </a>
     <div class="info">Sortie : 2026</div>
@@ -97,7 +97,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=15">
+    <a href="info.php?id=16">
       <img src="images/Spi.jpg" alt="Film">
     </a>
     <div class="info">Sortie : Juillet 2026</div>
@@ -106,7 +106,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=16">
+    <a href="info.php?id=17">
       <img src="images/Sup.jpg" alt="Film">
     </a>
     <div class="info">Sortie : Juin 2026</div>
@@ -115,7 +115,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=17">
+    <a href="info.php?id=18">
       <img src="images/Sta.jpg" alt="Film">
     </a>
     <div class="info">Sortie : Mai 2026</div>
@@ -124,7 +124,7 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=18">
+    <a href="info.php?id=19">
       <img src="images/Mic.jpg" alt="Film">
     </a>
     <div class="info">Sortie : Avril 2025</div>
@@ -133,8 +133,8 @@
 
 <div class="slide">
   <div class="card-inner">
-    <a href="info.php?id=19">
-      <img src="images/Pro.jpg" alt="Film">
+    <a href="info.php?id=11">
+      <img src="images/hun.jpg" alt="Film">
     </a>
     <div class="info">Sortie : Mars 2026</div>
   </div>
