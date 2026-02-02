@@ -1,4 +1,3 @@
-
 .cinema-container {
   padding: 10px 0 40px;
 }
@@ -10,37 +9,49 @@
 .section-title {
   margin-left: 5%;
   margin-bottom: 10px;
-
   font-size: 1.4rem;
   color: #e50914;
   letter-spacing: 1px;
   line-height: 1.2;
 }
 
+/* =========================
+   CAROUSEL CSS-ONLY
+   ========================= */
 
-.cinema-slider {
-  display: flex;
-  gap: 20px;
-
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-
-  padding: 10px 5%;
-  scrollbar-width: none;
+.slider-wrapper {
+  position: relative;
+  padding: 10px 0;
 }
 
-.cinema-slider::-webkit-scrollbar { display: none; }
+.slider-state {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cinema-viewport {
+  overflow: hidden;
+  padding: 10px 5%;
+}
+
+.cinema-track {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  transform: translateX(0);
+  transition: transform 0.45s ease;
+}
 
 .slide {
   flex: 0 0 45%;
-  scroll-snap-align: start;
 }
 
 @media (min-width: 800px) {
   .slide { flex: 0 0 18%; }
 }
 
-
+/* Cartes */
 .card-inner {
   position: relative;
   border-radius: 12px;
@@ -55,24 +66,19 @@
   transition: transform 0.35s ease;
 }
 
-
 .info {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-
   background: rgba(0, 0, 0, 0.85);
   color: #fff;
-
   padding: 10px;
   font-size: 0.85rem;
   text-align: center;
-
   transform: translateY(100%);
   transition: transform 0.25s ease;
 }
-
 
 .card-inner:hover img {
   transform: scale(1.08);
@@ -82,4 +88,90 @@
   transform: translateY(0);
 }
 
+/* =========================
+   BOUTONS (labels)
+   ========================= */
 
+.slider-nav { pointer-events: none; }
+
+.slider-btn {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 80px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  display: none;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.slider-btn:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn.prev { left: 8px; }
+.slider-btn.next { right: 8px; }
+
+.slider-btn.is-disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* =========================
+   Affichage boutons selon état
+   ========================= */
+
+/* À l'affiche */
+#affiche-p1:checked ~ .slider-nav .show-on-affiche-p1 { display: grid; }
+#affiche-p2:checked ~ .slider-nav .show-on-affiche-p2 { display: grid; }
+#affiche-p3:checked ~ .slider-nav .show-on-affiche-p3 { display: grid; }
+
+/* Bientôt */
+#bientot-p1:checked ~ .slider-nav .show-on-bientot-p1 { display: grid; }
+#bientot-p2:checked ~ .slider-nav .show-on-bientot-p2 { display: grid; }
+#bientot-p3:checked ~ .slider-nav .show-on-bientot-p3 { display: grid; }
+#bientot-p4:checked ~ .slider-nav .show-on-bientot-p4 { display: grid; }
+#bientot-p5:checked ~ .slider-nav .show-on-bientot-p5 { display: grid; }
+
+/* Classiques */
+#classiques-p1:checked ~ .slider-nav .show-on-classiques-p1 { display: grid; }
+#classiques-p2:checked ~ .slider-nav .show-on-classiques-p2 { display: grid; }
+#classiques-p3:checked ~ .slider-nav .show-on-classiques-p3 { display: grid; }
+#classiques-p4:checked ~ .slider-nav .show-on-classiques-p4 { display: grid; }
+#classiques-p5:checked ~ .slider-nav .show-on-classiques-p5 { display: grid; }
+
+/* =========================
+   Défilement PLUS PETIT :
+   pas de 50% au lieu de 100%
+   ========================= */
+
+/* À l'affiche : 0 / -50 / -100 */
+#affiche-p1:checked ~ .cinema-viewport .cinema-track { transform: translateX(0%); }
+#affiche-p2:checked ~ .cinema-viewport .cinema-track { transform: translateX(-50%); }
+#affiche-p3:checked ~ .cinema-viewport .cinema-track { transform: translateX(-100%); }
+
+/* Bientôt : 0 / -50 / -100 / -150 / -200 */
+#bientot-p1:checked ~ .cinema-viewport .cinema-track { transform: translateX(0%); }
+#bientot-p2:checked ~ .cinema-viewport .cinema-track { transform: translateX(-50%); }
+#bientot-p3:checked ~ .cinema-viewport .cinema-track { transform: translateX(-100%); }
+#bientot-p4:checked ~ .cinema-viewport .cinema-track { transform: translateX(-150%); }
+#bientot-p5:checked ~ .cinema-viewport .cinema-track { transform: translateX(-200%); }
+
+/* Classiques : 0 / -50 / -100 / -150 / -200 */
+#classiques-p1:checked ~ .cinema-viewport .cinema-track { transform: translateX(0%); }
+#classiques-p2:checked ~ .cinema-viewport .cinema-track { transform: translateX(-50%); }
+#classiques-p3:checked ~ .cinema-viewport .cinema-track { transform: translateX(-100%); }
+#classiques-p4:checked ~ .cinema-viewport .cinema-track { transform: translateX(-150%); }
+#classiques-p5:checked ~ .cinema-viewport .cinema-track { transform: translateX(-200%); }
