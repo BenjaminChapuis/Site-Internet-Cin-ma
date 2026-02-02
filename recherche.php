@@ -1,14 +1,14 @@
 <?php include 'nav.php'; ?>
 <?php
-$query = $_GET['q'] ?? ''; // On récupère la recherche depuis l'URL
+$query = $_GET['q'] ?? ''; 
 $resultats = [];
 
 if ($query !== '') {
     if (($fichier = fopen("stats.csv", "r")) !== false) {
-        fgetcsv($fichier, 0, ";"); // Sauter l'en-tête
+        fgetcsv($fichier, 0, ";"); 
         while (($ligne = fgetcsv($fichier, 0, ";")) !== false) {
             $titreFilm = $ligne[1] ?? '';
-            // Recherche insensible à la casse
+            
             if (stripos($titreFilm, $query) !== false) {
                 $resultats[] = $ligne;
             }

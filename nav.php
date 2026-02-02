@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// On compte le nombre total de places réservées (pas juste le nombre de films)
+
 $countPanier = 0;
 if (isset($_SESSION['panier'])) {
     foreach ($_SESSION['panier'] as $item) {

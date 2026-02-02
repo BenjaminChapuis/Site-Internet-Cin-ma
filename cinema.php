@@ -5,12 +5,12 @@
     <title>Nos Cinémas - Lumen Cinéma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS global + nav -->
+    
     <link rel="stylesheet" href="stylenav.css">
-    <!-- CSS spécifique à la page cinéma -->
+    
     <link rel="stylesheet" href="cinema.css">
 
-    <!-- Google Font -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -24,7 +24,7 @@
 
     <div class="cinema-grid">
 
-        <!-- CINÉMA 1 -->
+       
         <div class="cinema-card">
             <img src="images/cinema1.jpg" alt="Cinéma Paris Centre">
 
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <!-- CINÉMA 2 -->
+        
         <div class="cinema-card">
             <img src="images/cinema2.jpg" alt="Cinéma Lyon">
 

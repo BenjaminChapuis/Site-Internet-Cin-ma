@@ -3,10 +3,10 @@ session_start();
 
 $message = "";
 
-// --- LOGIQUE D'INSCRIPTION ---
+
 if (isset($_POST['inscription'])) {
     $pseudo = trim($_POST['pseudo']);
-    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT); // On crypte le mot de passe
+    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT); 
 
     if (!empty($pseudo) && !empty($_POST['mdp'])) {
         $fichier = fopen("utilisateurs.csv", "a+");
@@ -16,7 +16,7 @@ if (isset($_POST['inscription'])) {
     }
 }
 
-// --- LOGIQUE DE CONNEXION ---
+
 if (isset($_POST['connexion'])) {
     $pseudo_tente = $_POST['pseudo'];
     $mdp_tente = $_POST['mdp'];
@@ -27,7 +27,7 @@ if (isset($_POST['connexion'])) {
             if ($ligne[0] === $pseudo_tente && password_verify($mdp_tente, $ligne[1])) {
                 $_SESSION['user'] = $pseudo_tente;
                 $trouve = true;
-                header("Location: index.php"); // Redirige vers l'accueil une fois connecté
+                header("Location: index.php"); 
                 exit;
             }
         }
@@ -36,7 +36,7 @@ if (isset($_POST['connexion'])) {
     }
 }
 
-// --- LOGIQUE DE DÉCONNEXION ---
+
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: compte.php");

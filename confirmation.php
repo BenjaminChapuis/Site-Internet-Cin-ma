@@ -1,7 +1,7 @@
 <?php
 session_start();
 $panierArchive = $_SESSION['panier'] ?? [];
-unset($_SESSION['panier']); // On vide le panier après le paiement
+unset($_SESSION['panier']); 
 ?>
 
 <!DOCTYPE html>

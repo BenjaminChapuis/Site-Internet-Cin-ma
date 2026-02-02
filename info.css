@@ -1,18 +1,18 @@
 .movie-header {
     display: flex;
-    align-items: flex-start; /* Aligne le haut du texte avec le haut de l'image */
+    align-items: flex-start; 
     justify-content: space-between;
     gap: 50px;
-    flex-wrap: wrap; /* Permet de passer l'un sous l'autre sur petit écran */
+    flex-wrap: wrap; 
 }
 
 .movie-text {
-    flex: 1; /* Prend l'espace disponible à gauche */
+    flex: 1; 
     min-width: 300px;
 }
 
 .movie-poster {
-    flex: 0 0 400px; /* Largeur fixe pour l'affiche à droite */
+    flex: 0 0 400px; 
 }
 
 .movie-poster img {
@@ -21,7 +21,7 @@
     box-shadow: 0 0 30px rgba(229, 9, 20, 0.3);
 }
 
-/* --- Mise en page Detail --- */
+
 .movie-detail-container {
     max-width: 1200px;
     margin: auto;
@@ -41,7 +41,7 @@
 .movie-description { font-size: 1.2rem; line-height: 1.6; color: #ccc; }
 .movie-poster img { width: 400px; border-radius: 20px; box-shadow: 0 0 30px rgba(229, 9, 20, 0.3); }
 
-/* --- Séances Slider --- */
+
 .showtimes-slider {
     display: flex;
     overflow-x: auto;
@@ -64,7 +64,7 @@
 
 .showtime-card:hover { border-color: #e50914; background: #333; }
 
-/* Force les chiffres des séances en blanc */
+
 .st-left {
     font-size: 2rem;
     font-weight: bold;
@@ -79,7 +79,7 @@
 .st-lang { color: #e50914; font-weight: bold; }
 .st-end { color: #888; font-size: 0.8rem; }
 
-/* --- POP-UP MODALE --- */
+
 .modal {
     position: fixed;
     top: 0; left: 0;
@@ -94,8 +94,8 @@
 .modal:target { display: flex; }
 
 .modal-content {
-    background: #2c2c2c; /* Gris foncé demandé */
-    color: #ffffff;      /* Texte blanc */
+    background: #2c2c2c; 
+    color: #ffffff;      
     padding: 30px;
     border-radius: 15px;
     width: 90%;
@@ -108,7 +108,7 @@
 .close-btn { position: absolute; top: 15px; right: 20px; color: #888; font-size: 2rem; text-decoration: none; }
 .highlight-red { color: #e50914; font-weight: bold; }
 
-/* Lignes de tarifs */
+
 .price-row {
     display: flex;
     justify-content: space-between;
@@ -120,17 +120,17 @@
 .price-action {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espace entre prix et input */
+    gap: 15px; 
 }
 
 .inline-price { font-weight: bold; color: #aaa; font-size: 1.1rem; }
 
-/* Input de sélection (chiffres blancs) */
+
 .qty-input {
     width: 65px;
     background: #444;
     border: 1px solid #666;
-    color: #ffffff; /* Chiffre blanc */
+    color: #ffffff; 
     padding: 8px;
     border-radius: 6px;
     text-align: center;
@@ -155,12 +155,12 @@
 .btn-panier:hover { background: #b20710; }
 
 
-/* Force les chiffres des séances en blanc */
+
 .st-left {
     color: #ffffff !important;
 }
 
-/* Style de la Pop-up */
+
 .price-row {
     display: flex;
     justify-content: space-between;
@@ -172,7 +172,7 @@
 .price-action {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espace entre le prix et l'input */
+    gap: 15px; 
 }
 
 .inline-price {

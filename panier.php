@@ -1,7 +1,7 @@
 <?php
-session_start(); // Indispensable pour garder le panier en mémoire
+session_start(); 
 
-// 1. AJOUT AU PANIER (si on vient de la page info.php)
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['film_id'])) {
     $item = [
         'id'      => $_POST['film_id'],
@@ -13,18 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['film_id'])) {
         'q_kids'  => (int)$_POST['qty_kids']
     ];
 
-    // On n'ajoute que si au moins une place a été sélectionnée
+    
     if (($item['q_plein'] + $item['q_edu'] + $item['q_kids']) > 0) {
         $_SESSION['panier'][] = $item;
     }
 }
 
-// 2. SUPPRESSION D'UN ARTICLE
+
 if (isset($_GET['delete'])) {
     $index = (int)$_GET['delete'];
     if (isset($_SESSION['panier'][$index])) {
         unset($_SESSION['panier'][$index]);
-        $_SESSION['panier'] = array_values($_SESSION['panier']); // Réorganise les index
+        $_SESSION['panier'] = array_values($_SESSION['panier']); 
     }
     header("Location: panier.php");
     exit;
