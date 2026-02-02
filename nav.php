@@ -23,7 +23,7 @@ if (isset($_SESSION['panier'])) {
 <nav>
     
     <ul class="menu">
-        <li><img src="logo.png"></li>
+        <li><img src="lumen logo.png"></li>
         <li><a href="index.php">Films</a></li>
         <li><a href="cinema.php">Cinéma</a></li>
         <li><a href="contact.php">Contact</a></li>

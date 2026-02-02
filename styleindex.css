@@ -1,60 +1,54 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
 .cinema-container {
-  padding: 10px 0 40px;
+  padding: 12px 0 44px;
 }
 
 .genre-section {
-  margin-bottom: 50px;
+  margin: 0 0 46px;
 }
 
 .section-title {
-  margin-left: 5%;
-  margin-bottom: 10px;
-  font-size: 1.4rem;
+  margin: 0 5% 12px;
+  font-size: 1.35rem;
   color: #e50914;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   line-height: 1.2;
 }
 
-/* =========================
-   CAROUSEL CSS-ONLY
-   ========================= */
-
 .slider-wrapper {
   position: relative;
-  padding: 10px 0;
 }
 
-.slider-state {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.cinema-viewport {
-  overflow: hidden;
-  padding: 10px 5%;
-}
-
-.cinema-track {
+.cinema-slider {
   display: flex;
   gap: 20px;
-  width: 100%;
-  transform: translateX(0);
-  transition: transform 0.45s ease;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 5%;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
 }
+
+.cinema-slider::-webkit-scrollbar { display: none; }
 
 .slide {
   flex: 0 0 45%;
+  scroll-snap-align: start;
 }
 
 @media (min-width: 800px) {
   .slide { flex: 0 0 18%; }
 }
 
-/* Cartes */
 .card-inner {
   position: relative;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   background: #222;
   cursor: pointer;
@@ -71,107 +65,97 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
   padding: 10px;
   font-size: 0.85rem;
   text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.85);
   transform: translateY(100%);
   transition: transform 0.25s ease;
 }
 
-.card-inner:hover img {
-  transform: scale(1.08);
-}
+.card-inner:hover img { transform: scale(1.08); }
+.card-inner:hover .info { transform: translateY(0); }
 
-.card-inner:hover .info {
-  transform: translateY(0);
-}
+/* ===== Flèches premium ===== */
 
-/* =========================
-   BOUTONS (labels)
-   ========================= */
-
-.slider-nav { pointer-events: none; }
-
-.slider-btn {
-  pointer-events: auto;
+.slider-wrapper::before,
+.slider-wrapper::after {
+  content: "";
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  width: 44px;
-  height: 80px;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  font-size: 34px;
-  line-height: 1;
-  display: none;
-  place-items: center;
-  cursor: pointer;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  user-select: none;
-}
-
-.slider-btn:hover {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.05);
-}
-
-.slider-btn.prev { left: 8px; }
-.slider-btn.next { right: 8px; }
-
-.slider-btn.is-disabled {
-  opacity: 0.25;
-  cursor: default;
+  top: 0;
+  bottom: 0;
+  width: 95px;
+  z-index: 6;
   pointer-events: none;
 }
 
-/* =========================
-   Affichage boutons selon état
-   ========================= */
+.slider-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0));
+}
 
-/* À l'affiche */
-#affiche-p1:checked ~ .slider-nav .show-on-affiche-p1 { display: grid; }
-#affiche-p2:checked ~ .slider-nav .show-on-affiche-p2 { display: grid; }
-#affiche-p3:checked ~ .slider-nav .show-on-affiche-p3 { display: grid; }
+.slider-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.55), rgba(0,0,0,0));
+}
 
-/* Bientôt */
-#bientot-p1:checked ~ .slider-nav .show-on-bientot-p1 { display: grid; }
-#bientot-p2:checked ~ .slider-nav .show-on-bientot-p2 { display: grid; }
-#bientot-p3:checked ~ .slider-nav .show-on-bientot-p3 { display: grid; }
-#bientot-p4:checked ~ .slider-nav .show-on-bientot-p4 { display: grid; }
-#bientot-p5:checked ~ .slider-nav .show-on-bientot-p5 { display: grid; }
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 
-/* Classiques */
-#classiques-p1:checked ~ .slider-nav .show-on-classiques-p1 { display: grid; }
-#classiques-p2:checked ~ .slider-nav .show-on-classiques-p2 { display: grid; }
-#classiques-p3:checked ~ .slider-nav .show-on-classiques-p3 { display: grid; }
-#classiques-p4:checked ~ .slider-nav .show-on-classiques-p4 { display: grid; }
-#classiques-p5:checked ~ .slider-nav .show-on-classiques-p5 { display: grid; }
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
 
-/* =========================
-   Défilement PLUS PETIT :
-   pas de 50% au lieu de 100%
-   ========================= */
+  background: rgba(15, 15, 15, 0.65);
+  backdrop-filter: blur(6px);
 
-/* À l'affiche : 0 / -50 / -100 */
-#affiche-p1:checked ~ .cinema-viewport .cinema-track { transform: translateX(0%); }
-#affiche-p2:checked ~ .cinema-viewport .cinema-track { transform: translateX(-50%); }
-#affiche-p3:checked ~ .cinema-viewport .cinema-track { transform: translateX(-100%); }
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
 
-/* Bientôt : 0 / -50 / -100 / -150 / -200 */
-#bientot-p1:checked ~ .cinema-viewport .cinema-track { transform: translateX(0%); }
-#bientot-p2:checked ~ .cinema-viewport .cinema-track { transform: translateX(-50%); }
-#bientot-p3:checked ~ .cinema-viewport .cinema-track { transform: translateX(-100%); }
-#bientot-p4:checked ~ .cinema-viewport .cinema-track { transform: translateX(-150%); }
-#bientot-p5:checked ~ .cinema-viewport .cinema-track { transform: translateX(-200%); }
+  cursor: pointer;
+  display: grid;
+  place-items: center;
 
-/* Classiques : 0 / -50 / -100 / -150 / -200 */
-#classiques-p1:checked ~ .cinema-viewport .cinema-track { transform: translateX(0%); }
-#classiques-p2:checked ~ .cinema-viewport .cinema-track { transform: translateX(-50%); }
-#classiques-p3:checked ~ .cinema-viewport .cinema-track { transform: translateX(-100%); }
-#classiques-p4:checked ~ .cinema-viewport .cinema-track { transform: translateX(-150%); }
-#classiques-p5:checked ~ .cinema-viewport .cinema-track { transform: translateX(-200%); }
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+.slider-btn.prev { left: 14px; }
+.slider-btn.next { right: 14px; }
+
+.slider-wrapper:hover .slider-btn {
+  opacity: 1;
+}
+
+.slider-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+  background: rgba(30, 30, 30, 0.78);
+}
+
+.slider-btn:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.slider-btn:disabled {
+  opacity: 0.22 !important;
+  cursor: default;
+  transform: translateY(-50%) scale(1);
+}
+
+.slider-btn:focus-visible {
+  outline: 2px solid #e50914;
+  outline-offset: 4px;
+}
+
+/* Mobile : on garde les flèches visibles */
+@media (hover: none) and (pointer: coarse) {
+  .slider-btn { opacity: 0.95; }
+  .info { transform: translateY(0); }
+}
