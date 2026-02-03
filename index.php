@@ -65,7 +65,7 @@
           <div class="slide"><div class="card-inner"><a href="info.php?id=17"><img src="images/Sup.jpg" alt="Film"></a><div class="info">Sortie : Juin 2026</div></div></div>
           <div class="slide"><div class="card-inner"><a href="info.php?id=18"><img src="images/Sta.jpg" alt="Film"></a><div class="info">Sortie : Mai 2026</div></div></div>
           <div class="slide"><div class="card-inner"><a href="info.php?id=19"><img src="images/Mic.jpg" alt="Film"></a><div class="info">Sortie : Avril 2025</div></div></div>
-          <div class="slide"><div class="card-inner"><a href="info.php?id=11"><img src="images/hun.jpg" alt="Film"></a><div class="info">Sortie : Mars 2026</div></div></div>
+          <div class="slide"><div class="card-inner"><a href="info.php?id=11"><img src="images/Hun.jpg" alt="Film"></a><div class="info">Sortie : Mars 2026</div></div></div>
         </div>
 
         <button class="slider-btn next" type="button" aria-label="Suivant">›</button>
