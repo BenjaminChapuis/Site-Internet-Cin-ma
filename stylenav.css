@@ -1,97 +1,128 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color:#111;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #111;
+  padding-top: 180px;
 }
 
-nav {
-    background-color: #e50914;
-    height: 150px;
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    height: 100%;
-    align-items: stretch;
-}
-
-.menu li {
-    height: 100%;
-}
-
-
-.menu li:first-child {
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-}
-
-
-.menu li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 0 25px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 200%;
-    background-color: #e50914;
-}
-
-
-.menu li:not(:first-child) a:hover {
-    background-color: #6d6d6d;
-}
-
-
-.menu img {
-    height: 40%;
-    width: auto;
-}
-nav{
+.main-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-}
-body{
-  padding-top: 180px;
-}
-
-.nav-cart {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; 
+  background-color: #e50914;
+  height: 150px;
 }
 
+.menu {
+  list-style: none;
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+
+.menu li {
+  height: 100%;
+}
+
+.menu-logo {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+}
+
+.logo-img {
+  height: 40%;
+  width: auto;
+}
+
+.menu li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 25px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 200%;
+  background-color: #e50914;
+}
+
+.menu li:not(.menu-logo):not(.menu-spacer):not(.menu-icon) a:hover {
+  background-color: #6d6d6d;
+}
+
+.menu-spacer {
+  flex: 1;
+}
+
+/* ====== ICONES A DROITE (TAILLE NORMALE) ====== */
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* On annule la "grosse typo" + gros padding hérités de .menu li a */
+.menu-icon .icon-link {
+  height: 100%;
+  padding: 0 14px;
+  background: transparent;
+  font-size: 0;              /* évite que le texte/espaces agrandisse */
+}
+
+/* Conteneur icône */
+.icon-wrap {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+/* Hover sympa */
+.menu-icon .icon-link:hover .icon-wrap {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+/* Taille icône correcte */
+.nav-icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* Badge panier */
 .cart-badge {
-    background-color: #ffffff;
-    color: rgb(219, 25, 25);
-    font-size: 0.75rem; 
-    font-weight: bold;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    
-    transform: translateY(1px); 
-    box-shadow: 0 0 8px rgba(229, 9, 20, 0.4);
-}
-
-
-@keyframes popIn {
-    0% { transform: scale(0); }
-    80% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #fff;
+  color: rgb(219, 25, 25);
+  font-size: 12px;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
 }
