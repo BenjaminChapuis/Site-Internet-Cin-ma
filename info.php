@@ -36,7 +36,7 @@ $formatsDispo   = $filmTrouve[13] ?? '';
 $seancesBrut    = $filmTrouve[14] ?? '';
 
 $castList   = array_filter(array_map('trim', explode(',', $casting)));
-$seancesRaw = array_filter(array_map('trim', explode('|', $seancesBrut)));
+$seancesRaw = array_filter(array_map('trim', explode('|', (string)$seancesBrut)));
 
 function calcFinHeure(string $heureDebut, int $dureeMinutes): ?string {
     if (!preg_match('/^\d{2}:\d{2}$/', $heureDebut)) return null;
@@ -49,6 +49,7 @@ function calcFinHeure(string $heureDebut, int $dureeMinutes): ?string {
 }
 
 $dureeInt = (int)$dureeMin;
+$hasSeances = !empty($seancesRaw);
 ?>
 
 <!DOCTYPE html>
@@ -61,37 +62,36 @@ $dureeInt = (int)$dureeMin;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
 
+<body>
 <div class="movie-detail-container">
-    
+
     <div class="movie-header">
-        
         <div class="movie-text">
             <h1 class="movie-title"><?php echo strtoupper(htmlspecialchars($titre)); ?></h1>
-            
-            <p style="color:#e50914; font-weight:bold; margin: 6px 0 10px 0;">
+
+            <p class="movie-meta">
                 <?php if ($annee) echo htmlspecialchars($annee) . " • "; ?>
                 <?php if ($genre) echo htmlspecialchars($genre) . " • "; ?>
                 <?php if ($dureeMin) echo htmlspecialchars($dureeMin) . " min "; ?>
                 <?php if ($ageMin !== '') echo " • " . htmlspecialchars($ageMin); ?>
             </p>
 
-            <div class="movie-infos-secondary" style="color:white; opacity:0.9; font-size: 0.9rem;">
-                <?php if ($note) echo "<p>Note : ".htmlspecialchars($note)."</p>"; ?>
-                <?php if ($realisateur) echo "<p>Réalisateur : ".htmlspecialchars($realisateur)."</p>"; ?>
-                <?php if (!empty($castList)) echo "<p>Casting : ".htmlspecialchars(implode(', ', $castList))."</p>"; ?>
-                <?php if ($languesDispo) echo "<p>Langues : ".htmlspecialchars($languesDispo)."</p>"; ?>
-                <?php if ($formatsDispo) echo "<p>Formats : ".htmlspecialchars($formatsDispo)."</p>"; ?>
+            <div class="movie-infos-secondary">
+                <?php if ($note) echo "<p>Note : " . htmlspecialchars($note) . "</p>"; ?>
+                <?php if ($realisateur) echo "<p>Réalisateur : " . htmlspecialchars($realisateur) . "</p>"; ?>
+                <?php if (!empty($castList)) echo "<p>Casting : " . htmlspecialchars(implode(', ', $castList)) . "</p>"; ?>
+                <?php if ($languesDispo) echo "<p>Langues : " . htmlspecialchars($languesDispo) . "</p>"; ?>
+                <?php if ($formatsDispo) echo "<p>Formats : " . htmlspecialchars($formatsDispo) . "</p>"; ?>
             </div>
 
-            <p class="movie-description" style="margin-top: 15px;">
+            <p class="movie-description">
                 <?php echo nl2br(htmlspecialchars($description)); ?>
             </p>
 
             <?php if ($trailerUrl) : ?>
-                <p style="margin-top:14px;">
-                    <a href="<?php echo htmlspecialchars($trailerUrl); ?>" target="_blank" style="color:#e50914; font-weight:bold; text-decoration:none;">
+                <p class="trailer-link">
+                    <a href="<?php echo htmlspecialchars($trailerUrl); ?>" target="_blank">
                         ▶ Voir la bande-annonce
                     </a>
                 </p>
@@ -101,70 +101,77 @@ $dureeInt = (int)$dureeMin;
         <div class="movie-poster">
             <img src="<?php echo htmlspecialchars($afficheUrl); ?>" alt="Affiche">
         </div>
-
     </div>
 
-    <div class="showtimes-section">
-        <h3>SÉANCES</h3>
-        <div class="showtimes-slider">
-            <?php foreach ($seancesRaw as $index => $s): 
-                $parts = array_map('trim', explode(',', $s));
-                $heure = $parts[0] ?? '';
-                $lang  = $parts[1] ?? '';
-                $fin   = ($dureeInt > 0 && $heure) ? calcFinHeure($heure, $dureeInt) : null;
-                $modalID = "res-" . str_replace(':', '', $heure) . "-" . $index;
-            ?>
-                <a href="#<?php echo $modalID; ?>" class="showtime-link" style="text-decoration: none;">
-                    <div class="showtime-card">
-                        <div class="st-left"><?php echo htmlspecialchars($heure); ?></div>
-                        <div class="st-right">
-                            <span class="st-lang"><?php echo htmlspecialchars($lang); ?></span>
-                            <span class="st-end">Fin: <?php echo htmlspecialchars($fin); ?></span>
+    <?php if ($hasSeances) : ?>
+        <div class="showtimes-section">
+            <h3>SÉANCES</h3>
+
+            <div class="showtimes-slider">
+                <?php foreach ($seancesRaw as $index => $s):
+                    $parts = array_map('trim', explode(',', $s));
+                    $heure = $parts[0] ?? '';
+                    $lang  = $parts[1] ?? '';
+                    $fin   = ($dureeInt > 0 && $heure) ? calcFinHeure($heure, $dureeInt) : null;
+                    $modalID = "res-" . str_replace(':', '', $heure) . "-" . $index;
+                ?>
+                    <a href="#<?php echo $modalID; ?>" class="showtime-link">
+                        <div class="showtime-card">
+                            <div class="st-left"><?php echo htmlspecialchars($heure); ?></div>
+                            <div class="st-right">
+                                <span class="st-lang"><?php echo htmlspecialchars($lang); ?></span>
+                                <span class="st-end">Fin: <?php echo htmlspecialchars($fin); ?></span>
+                            </div>
                         </div>
+                    </a>
+
+                    <div id="<?php echo $modalID; ?>" class="modal">
+                        <form action="panier.php" method="POST" class="modal-content">
+                            <a href="#" class="close-btn">&times;</a>
+                            <h2>Réserver vos places</h2>
+
+                            <p class="modal-line">Film : <strong><?php echo htmlspecialchars($titre); ?></strong></p>
+                            <p class="modal-line">Séance : <span class="highlight-red"><?php echo htmlspecialchars($heure); ?></span></p>
+
+                            <input type="hidden" name="film_id" value="<?php echo htmlspecialchars($id); ?>">
+                            <input type="hidden" name="heure_seance" value="<?php echo htmlspecialchars($heure); ?>">
+
+                            <div class="pricing-list">
+                                <div class="price-row">
+                                    <label>Plein Tarif</label>
+                                    <div class="price-action">
+                                        <span class="inline-price">10€</span>
+                                        <input type="number" name="qty_plein" value="0" min="0" class="qty-input">
+                                    </div>
+                                </div>
+
+                                <div class="price-row">
+                                    <label>Étudiant / -18 ans</label>
+                                    <div class="price-action">
+                                        <span class="inline-price">5€</span>
+                                        <input type="number" name="qty_edu" value="0" min="0" class="qty-input">
+                                    </div>
+                                </div>
+
+                                <div class="price-row">
+                                    <label>Moins de 12 ans</label>
+                                    <div class="price-action">
+                                        <span class="inline-price">4€</span>
+                                        <input type="number" name="qty_kids" value="0" min="0" class="qty-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn-panier">Ajouter au panier</button>
+                            </div>
+                        </form>
                     </div>
-                </a>
-
-                <div id="<?php echo $modalID; ?>" class="modal">
-                    <form action="panier.php" method="POST" class="modal-content">
-                        <a href="#" class="close-btn">&times;</a>
-                        <h2>Réserver vos places</h2>
-                        <p style="color:white; margin-bottom:5px;">Film : <strong><?php echo htmlspecialchars($titre); ?></strong></p>
-                        <p style="color:white; margin-bottom:20px;">Séance : <span style="color:#e50914; font-weight:bold;"><?php echo htmlspecialchars($heure); ?></span></p>
-
-                        <input type="hidden" name="film_id" value="<?php echo htmlspecialchars($id); ?>">
-                        <input type="hidden" name="heure_seance" value="<?php echo htmlspecialchars($heure); ?>">
-
-                        <div class="pricing-list">
-                            <div class="price-row">
-                                <label>Plein Tarif</label>
-                                <div class="price-action">
-                                    <span class="inline-price">10€</span>
-                                    <input type="number" name="qty_plein" value="0" min="0" class="qty-input">
-                                </div>
-                            </div>
-                            <div class="price-row">
-                                <label>Étudiant / -18 ans</label>
-                                <div class="price-action">
-                                    <span class="inline-price">5€</span>
-                                    <input type="number" name="qty_edu" value="0" min="0" class="qty-input">
-                                </div>
-                            </div>
-                            <div class="price-row">
-                                <label>Moins de 12 ans</label>
-                                <div class="price-action">
-                                    <span class="inline-price">4€</span>
-                                    <input type="number" name="qty_kids" value="0" min="0" class="qty-input">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn-panier">Ajouter au panier</button>
-                        </div>
-                    </form>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
+
 </div>
 </body>
 </html>
