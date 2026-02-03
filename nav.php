@@ -16,21 +16,24 @@ $accountTitle = $userName ? $userName : "Se connecter";
 ?>
 
 <nav class="main-nav">
-  <ul class="menu">
-    <li class="menu-logo">
-      <a href="index.php" class="logo-link">
-        <img src="images/lumen logo.png" alt="Lumen Cinéma" class="logo-img">
-      </a>
-    </li>
+  <div class="nav-inner">
+    <a href="index.php" class="logo-link">
+      <img src="images/lumen logo.png" alt="Lumen Cinéma" class="logo-img">
+    </a>
 
-    <li><a href="index.php">Films</a></li>
-    <li><a href="cinema.php">Cinéma</a></li>
-    <li><a href="contact.php">Contact</a></li>
-    <li><a href="recherche.php">Recherche</a></li>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Ouvrir le menu">
+    <label for="nav-toggle" class="burger" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
 
-    <li class="menu-spacer"></li>
+    <ul class="menu">
+      <li><a href="index.php">Films</a></li>
+      <li><a href="cinema.php">Cinéma</a></li>
+      <li><a href="contact.php">Contact</a></li>
+      <li><a href="recherche.php">Recherche</a></li>
+    </ul>
 
-    <li class="menu-icon">
+    <div class="nav-icons">
       <a href="panier.php" class="icon-link" aria-label="Panier" title="Panier">
         <span class="icon-wrap">
           <img src="images/panier.png" alt="" class="nav-icon">
@@ -39,14 +42,12 @@ $accountTitle = $userName ? $userName : "Se connecter";
           <?php endif; ?>
         </span>
       </a>
-    </li>
 
-    <li class="menu-icon">
       <a href="compte.php" class="icon-link" aria-label="Compte" title="<?php echo $accountTitle; ?>">
         <span class="icon-wrap">
           <img src="<?php echo $accountIcon; ?>" alt="" class="nav-icon">
         </span>
       </a>
-    </li>
-  </ul>
+    </div>
+  </div>
 </nav>

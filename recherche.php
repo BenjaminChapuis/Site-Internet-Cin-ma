@@ -1,14 +1,13 @@
 <?php include 'nav.php'; ?>
 <?php
-$query = $_GET['q'] ?? ''; 
+$query = $_GET['q'] ?? '';
 $resultats = [];
 
 if ($query !== '') {
     if (($fichier = fopen("stats.csv", "r")) !== false) {
-        fgetcsv($fichier, 0, ";"); 
+        fgetcsv($fichier, 0, ";");
         while (($ligne = fgetcsv($fichier, 0, ";")) !== false) {
             $titreFilm = $ligne[1] ?? '';
-            
             if (stripos($titreFilm, $query) !== false) {
                 $resultats[] = $ligne;
             }
@@ -33,9 +32,16 @@ if ($query !== '') {
     <div class="search-header">
         <form action="recherche.php" method="GET" class="search-form">
             <div class="search-input-wrapper">
-                <input type="text" name="q" placeholder="Rechercher un film..." value="<?php echo htmlspecialchars($query); ?>" autocomplete="off">
-                <button type="submit" class="search-btn">
-                    <i>🔍</i> </button>
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Rechercher un film..."
+                    value="<?php echo htmlspecialchars($query); ?>"
+                    autocomplete="off"
+                >
+                <button type="submit" class="search-btn" aria-label="Rechercher">
+                    <img src="images/loupe.png" alt="Rechercher" class="search-icon">
+                </button>
             </div>
         </form>
     </div>
