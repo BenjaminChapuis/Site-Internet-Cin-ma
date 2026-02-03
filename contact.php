@@ -21,10 +21,10 @@
             <p>Suivez l'actualité de **Lumen Cinéma** sur nos réseaux officiels :</p>
             
             <div class="social-links">
-                <a href="#" class="social-item instagram">Instagram</a>
-                <a href="#" class="social-item tiktok">TikTok</a>
-                <a href="#" class="social-item facebook">Facebook</a>
-                <a href="#" class="social-item twitter">X (Twitter)</a>
+                <a href="https://www.instagram.com/" class="social-item instagram">Instagram</a>
+                <a href="https://www.tiktok.com/fr/" class="social-item tiktok">TikTok</a>
+                <a href="https://www.facebook.com/?locale=fr_FR" class="social-item facebook">Facebook</a>
+                <a href="https://x.com/?lang=fr" class="social-item twitter">X (Twitter)</a>
             </div>
 
             <div class="cinema-address">
