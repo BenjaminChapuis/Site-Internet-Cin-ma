@@ -40,7 +40,7 @@
                     <li>3D</li>
                 </ul>
 
-                <a href="#" class="cinema-btn">Voir les séances</a>
+                <a href="index.php" class="cinema-btn">Voir les séances</a>
             </div>
         </div>
 
@@ -60,4 +60,4 @@
                     <li>Accès PMR</li>
                 </ul>
 
-                <a href="#" class="cinema-btn">Voir les séances</a>
+                <a href="index.php" class="cinema-btn">Voir les séances</a>
