@@ -1,31 +1,73 @@
 <?php
-session_start(); 
+session_start();
 
+function savePanierToFile(string $pseudo, array $panier): void {
+    $file = "paniers.csv";
+    if (!file_exists($file)) file_put_contents($file, "");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['film_id'])) {
-    $item = [
-        'id'      => $_POST['film_id'],
-        'titre'   => $_POST['film_titre'] ?? 'Film',
-        'affiche' => $_POST['film_affiche'] ?? '',
-        'heure'   => $_POST['heure_seance'] ?? $_POST['heure_choisie'] ?? '--:--',
-        'q_plein' => (int)$_POST['qty_plein'],
-        'q_edu'   => (int)$_POST['qty_edu'],
-        'q_kids'  => (int)$_POST['qty_kids']
-    ];
+    $rows = [];
+    $found = false;
 
-    
-    if (($item['q_plein'] + $item['q_edu'] + $item['q_kids']) > 0) {
-        $_SESSION['panier'][] = $item;
+    if (($f = fopen($file, "r")) !== false) {
+        while (($line = fgetcsv($f, 0, ";")) !== false) {
+            if (!isset($line[0])) continue;
+            if ($line[0] === $pseudo) {
+                $rows[] = [$pseudo, json_encode($panier, JSON_UNESCAPED_UNICODE)];
+                $found = true;
+            } else {
+                $rows[] = $line;
+            }
+        }
+        fclose($f);
     }
+
+    if (!$found) $rows[] = [$pseudo, json_encode($panier, JSON_UNESCAPED_UNICODE)];
+
+    $f = fopen($file, "w");
+    foreach ($rows as $r) fputcsv($f, $r, ";");
+    fclose($f);
 }
 
+if (!isset($_SESSION['panier'])) $_SESSION['panier'] = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['film_id'])) {
+    $qPlein = (int)($_POST['qty_plein'] ?? 0);
+    $qEdu   = (int)($_POST['qty_edu'] ?? 0);
+    $qKids  = (int)($_POST['qty_kids'] ?? 0);
+
+    $item = [
+        'id'      => trim((string)($_POST['film_id'] ?? '')),
+        'titre'   => trim((string)($_POST['film_titre'] ?? 'Film')),
+        'affiche' => trim((string)($_POST['film_affiche'] ?? '')),
+        'heure'   => trim((string)($_POST['heure_seance'] ?? '--:--')),
+        'q_plein' => $qPlein,
+        'q_edu'   => $qEdu,
+        'q_kids'  => $qKids
+    ];
+
+    if (($qPlein + $qEdu + $qKids) > 0) {
+        $_SESSION['panier'][] = $item;
+    }
+
+    if (isset($_SESSION['user'])) {
+        savePanierToFile($_SESSION['user'], $_SESSION['panier']);
+    }
+
+    header("Location: panier.php");
+    exit;
+}
 
 if (isset($_GET['delete'])) {
     $index = (int)$_GET['delete'];
     if (isset($_SESSION['panier'][$index])) {
         unset($_SESSION['panier'][$index]);
-        $_SESSION['panier'] = array_values($_SESSION['panier']); 
+        $_SESSION['panier'] = array_values($_SESSION['panier']);
     }
+
+    if (isset($_SESSION['user'])) {
+        savePanierToFile($_SESSION['user'], $_SESSION['panier']);
+    }
+
     header("Location: panier.php");
     exit;
 }
@@ -65,20 +107,23 @@ $totalGeneral = 0;
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($panier as $index => $res): 
-                    $sousTotal = ($res['q_plein'] * 10) + ($res['q_edu'] * 5) + ($res['q_kids'] * 4);
+                <?php foreach ($panier as $index => $res):
+                    $sousTotal = ((int)$res['q_plein'] * 10) + ((int)$res['q_edu'] * 5) + ((int)$res['q_kids'] * 4);
                     $totalGeneral += $sousTotal;
+
+                    $aff = trim((string)($res['affiche'] ?? ''));
+                    if ($aff === '') $aff = 'images/film.jpg';
                 ?>
                 <tr>
                     <td class="td-film">
-                        <img src="<?php echo htmlspecialchars($res['affiche']); ?>" class="cart-img">
-                        <span><?php echo htmlspecialchars($res['titre']); ?></span>
+                        <img src="<?php echo htmlspecialchars($aff); ?>" class="cart-img" alt="">
+                        <span><?php echo htmlspecialchars($res['titre'] ?? 'Film'); ?></span>
                     </td>
-                    <td><b style="color:#e50914;"><?php echo htmlspecialchars($res['heure']); ?></b></td>
+                    <td><b style="color:#e50914;"><?php echo htmlspecialchars($res['heure'] ?? '--:--'); ?></b></td>
                     <td class="td-qty">
-                        <?php if($res['q_plein'] > 0) echo "Plein x".$res['q_plein']."<br>"; ?>
-                        <?php if($res['q_edu'] > 0) echo "Réduit x".$res['q_edu']."<br>"; ?>
-                        <?php if($res['q_kids'] > 0) echo "Enfant x".$res['q_kids']; ?>
+                        <?php if(!empty($res['q_plein'])) echo "Plein x".(int)$res['q_plein']."<br>"; ?>
+                        <?php if(!empty($res['q_edu']))   echo "Réduit x".(int)$res['q_edu']."<br>"; ?>
+                        <?php if(!empty($res['q_kids']))  echo "Enfant x".(int)$res['q_kids']; ?>
                     </td>
                     <td class="td-price"><?php echo $sousTotal; ?>€</td>
                     <td>

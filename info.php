@@ -28,7 +28,7 @@ $annee          = $filmTrouve[5] ?? '';
 $realisateur    = $filmTrouve[6] ?? '';
 $casting        = $filmTrouve[7] ?? '';
 $note           = $filmTrouve[8] ?? '';
-$afficheUrl     = $filmTrouve[9] ?? 'film.jpg';
+$afficheUrl     = $filmTrouve[9] ?? 'images/film.jpg';
 $trailerUrl     = $filmTrouve[10] ?? '';
 $ageMin         = $filmTrouve[11] ?? '';
 $languesDispo   = $filmTrouve[12] ?? '';
@@ -135,6 +135,10 @@ $hasSeances = !empty($seancesRaw);
 
                             <input type="hidden" name="film_id" value="<?php echo htmlspecialchars($id); ?>">
                             <input type="hidden" name="heure_seance" value="<?php echo htmlspecialchars($heure); ?>">
+
+                            <!-- ✅ AJOUT : titre + affiche pour que le panier s'en souvienne -->
+                            <input type="hidden" name="film_titre" value="<?php echo htmlspecialchars($titre); ?>">
+                            <input type="hidden" name="film_affiche" value="<?php echo htmlspecialchars($afficheUrl); ?>">
 
                             <div class="pricing-list">
                                 <div class="price-row">
