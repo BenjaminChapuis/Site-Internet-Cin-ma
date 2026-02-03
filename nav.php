@@ -11,6 +11,8 @@ if (isset($_SESSION['panier'])) {
 }
 
 $userName = isset($_SESSION['user']) ? strtoupper(htmlspecialchars($_SESSION['user'])) : null;
+$accountIcon = $userName ? "images/compte.png" : "images/connexion.png";
+$accountTitle = $userName ? $userName : "Se connecter";
 ?>
 
 <nav class="main-nav">
@@ -40,9 +42,9 @@ $userName = isset($_SESSION['user']) ? strtoupper(htmlspecialchars($_SESSION['us
     </li>
 
     <li class="menu-icon">
-      <a href="compte.php" class="icon-link" aria-label="Compte" title="<?php echo $userName ? $userName : 'Mon compte'; ?>">
+      <a href="compte.php" class="icon-link" aria-label="Compte" title="<?php echo $accountTitle; ?>">
         <span class="icon-wrap">
-          <img src="images/compte.png" alt="" class="nav-icon">
+          <img src="<?php echo $accountIcon; ?>" alt="" class="nav-icon">
         </span>
       </a>
     </li>

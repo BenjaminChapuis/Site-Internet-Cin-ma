@@ -56,36 +56,34 @@ body {
   height: 100%;
   padding: 0 25px;
   text-decoration: none;
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 200%;
   background-color: #e50914;
 }
 
 .menu li:not(.menu-logo):not(.menu-spacer):not(.menu-icon) a:hover {
-  background-color: #6d6d6d;
+  background-color: #111;
+  color:#fff;
 }
 
 .menu-spacer {
   flex: 1;
 }
 
-/* ====== ICONES A DROITE (TAILLE NORMALE) ====== */
-
+/* Icônes à droite */
 .menu-icon {
   display: flex;
   align-items: center;
 }
 
-/* On annule la "grosse typo" + gros padding hérités de .menu li a */
 .menu-icon .icon-link {
   height: 100%;
   padding: 0 14px;
   background: transparent;
-  font-size: 0;              /* évite que le texte/espaces agrandisse */
+  font-size: 0;
 }
 
-/* Conteneur icône */
 .icon-wrap {
   position: relative;
   width: 46px;
@@ -96,19 +94,16 @@ body {
   transition: background 0.2s ease;
 }
 
-/* Hover sympa */
 .menu-icon .icon-link:hover .icon-wrap {
   background: rgba(0, 0, 0, 0.22);
 }
 
-/* Taille icône correcte */
 .nav-icon {
   width: 26px;
   height: 26px;
   display: block;
 }
 
-/* Badge panier */
 .cart-badge {
   position: absolute;
   top: -8px;
