@@ -143,6 +143,6 @@ $totalGeneral = 0;
         </div>
     <?php endif; ?>
 </div>
-
+<?php include 'footer.php'; ?>
 </body>
 </html>

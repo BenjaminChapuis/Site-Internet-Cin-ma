@@ -195,5 +195,6 @@ if (isset($_GET['logout'])) {
         <?php echo $message; ?>
     <?php endif; ?>
 </div>
+<?php include 'footer.php'; ?>
 </body>
 </html>

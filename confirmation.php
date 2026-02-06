@@ -40,5 +40,6 @@ unset($_SESSION['panier']);
 
         <a href="index.php" class="btn-home">RETOURNER À L'ACCUEIL</a>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

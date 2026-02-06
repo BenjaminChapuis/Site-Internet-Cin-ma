@@ -233,3 +233,4 @@ body {
 @media (max-width: 520px){
   .footer-cols{ grid-template-columns: 1fr; }
 }
+

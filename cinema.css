@@ -1,9 +1,6 @@
-
-
 .cinema-page {
     padding: 30px 5% 60px;
 }
-
 
 .page-title {
     color: #e50914;
@@ -12,13 +9,11 @@
     letter-spacing: 1px;
 }
 
-
 .cinema-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
-
 
 .cinema-card {
     background-color: #1a1a1a;
@@ -32,13 +27,11 @@
     transform: translateY(-5px);
 }
 
-
 .cinema-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
-
 
 .cinema-info {
     padding: 20px;
@@ -55,7 +48,6 @@
     color: #cccccc;
     margin-bottom: 6px;
 }
-
 
 .cinema-features {
     list-style: none;
@@ -74,7 +66,6 @@
     border-radius: 20px;
 }
 
-
 .cinema-btn {
     display: inline-block;
     margin-top: 10px;
@@ -92,9 +83,101 @@
     background-color: #b20710;
 }
 
-
 @media (max-width: 600px) {
     .page-title {
         font-size: 1.6rem;
     }
+}
+
+/* ✅ VIDEO (plus petite, après les cinémas) */
+.cinema-video{
+    margin: 35px auto 0;
+    max-width: 680px;
+    width: 100%;
+    background: #1a1a1a;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.cinema-video video{
+    width: 100%;
+    display: block;
+    max-height: 320px;
+    object-fit: cover;
+}
+
+/* FOOTER */
+.site-footer{
+  margin-top: 60px;
+  background: #0d0d0d;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #d7d7d7;
+}
+
+.footer-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 18px;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 28px;
+}
+
+.footer-logo{
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #e50914;
+  font-size: 1.05rem;
+}
+
+.footer-tagline{
+  margin-top: 10px;
+  color: #b8b8b8;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.footer-cols{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 18px;
+}
+
+.footer-col h4{
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.6px;
+}
+
+.footer-col a{
+  display: block;
+  text-decoration: none;
+  color: #bdbdbd;
+  padding: 6px 0;
+  font-size: 0.92rem;
+  transition: 0.18s;
+}
+
+.footer-col a:hover{
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 14px 18px;
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px){
+  .footer-inner{ grid-template-columns: 1fr; }
+  .footer-cols{ grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+}
+
+@media (max-width: 520px){
+  .footer-cols{ grid-template-columns: 1fr; }
 }

@@ -177,5 +177,6 @@ $hasSeances = !empty($seancesRaw);
     <?php endif; ?>
 
 </div>
+<?php include 'footer.php'; ?>
 </body>
 </html>

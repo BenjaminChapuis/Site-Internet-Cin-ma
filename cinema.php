@@ -5,12 +5,8 @@
     <title>Nos Cinémas - Lumen Cinéma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
     <link rel="stylesheet" href="stylenav.css">
-    
     <link rel="stylesheet" href="cinema.css">
-
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -24,7 +20,6 @@
 
     <div class="cinema-grid">
 
-       
         <div class="cinema-card">
             <img src="images/cinema1.jpg" alt="Cinéma Paris Centre">
 
@@ -44,7 +39,6 @@
             </div>
         </div>
 
-        
         <div class="cinema-card">
             <img src="images/cinema2.jpg" alt="Cinéma Lyon">
 
@@ -61,3 +55,18 @@
                 </ul>
 
                 <a href="index.php" class="cinema-btn">Voir les séances</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cinema-video">
+        <video src="video.mp4" controls muted playsinline></video>
+    </div>
+
+</div>
+
+<?php include 'footer.php'; ?>
+
+</body>
+</html>
